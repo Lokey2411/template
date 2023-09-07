@@ -1,17 +1,13 @@
-import { View, Text } from "react-native";
+import { View, Text, SafeAreaView } from "react-native";
 import React from "react";
 import PrimaryButton from "../../components/PrimaryButton";
 import { signOutHandler } from "../../constants/backend";
 
 const HomeScreen = () => {
 	return (
-		<View>
+		<SafeAreaView>
 			<Text>HomeScreen</Text>
-			<PrimaryButton
-				title="Sign out"
-				onPress={signOutHandler}
-			/>
-		</View>
+		</SafeAreaView>
 	);
 };
 

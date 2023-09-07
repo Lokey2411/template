@@ -1,6 +1,7 @@
 import { doc, setDoc } from "firebase/firestore";
 import { createContext, useState } from "react";
 import { firestore } from "../config/firebase";
+import { storeUser } from "./backend";
 
 export interface ContextType {
 	name: string;
@@ -33,6 +34,7 @@ export const ContextProvider = ({ children }: any) => {
 				[key]: value,
 			};
 		});
+		storeUser(state.user);
 		setDoc(doc(firestore, `data/${state.email}`), state)
 			.then(() => console.log("store"))
 			.catch((error) => console.log(error));
